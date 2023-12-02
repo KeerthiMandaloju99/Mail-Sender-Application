@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employer Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .button-update-mail {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+        }
+        .button-logout {
+            background-color: #ffc107;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+        }
+        .button-logout:hover {
+            background-color: #cfcabc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Employer Dashboard</h1>
+        <p>User Name: {{ user.username }}</p>
+        <p>User Type: {{ user.user_type }}</p>
+        <p>Password: {{ user.password }}</p>
+        <a href="{% url 'mail_details' %}" class="button-update-mail">Add/Update Mail Information</a><br>
+        <a href="{% url 'logout' %}" class="button-logout">Logout</a>
+    </div>
+</body>
+</html>

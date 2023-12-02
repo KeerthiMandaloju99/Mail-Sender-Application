@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .button-login {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+        }
+        .button-employee-signup {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+        }
+        .button-employer-signup {
+            background-color: #ffc107;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Mail Sender Application</h1>
+        <p>You can email to any mail id using this application, but before that you have to signup for an account.</p>
+        <p>And your employer should provide from mail and password to send email the only you will be able to send an email.</p>
+        <div>
+            <p class="lead">
+                If you already have an account, go ahead and <a href="{% url 'login' %}" class="button-login">Log In</a><br><br>
+                If you are a new user, get started
+                by creating an <a href="{% url 'employee_signup' %}" class="button-employee-signup">Employee Account</a> or
+                <a href="{% url 'employer_signup' %}" class="button-employer-signup">Employer Account</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mail setup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .button-add-mail {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+        }
+        .button-delete-mail {
+            background-color: #dc3545;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+        }
+        .button-logout {
+            background-color: #ffc107;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Setup Mail Details</h1>
+        <div>
+            {% for mail_detail in mail_details_list %}
+                <p>Email: {{ mail_detail.email }}</p>
+                <p>Encrypted Password: {{ mail_detail.encrypted_password }}</p>
+            {% endfor %}
+        </div><br>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label for="id_email">Email:</label>
+                <input type="email" id="id_email" name="email" required>
+            </div><br>
+            <div>
+                <label for="id_password">Password:</label>
+                <input type="password" id="id_password" name="password" required>
+            </div><br>
+            <button type="submit" class="button-add-mail">Add Mail Details</button>
+            <a href="{% url 'delete_mail_details' %}" class="button-delete-mail">Delete All Mail Details</a>
+            <a href="{% url 'logout' %}" class="button-logout">Logout</a>
+        </form>
+    </div>
+</body>
+</html>
